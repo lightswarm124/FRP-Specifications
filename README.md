@@ -6,6 +6,7 @@
 Jerry Qian
 
 ## Acknowledgements
+Chris Troutner & Rosco Kalis - for helping me deploy and understand SLP token transactions.
 
 # SECTION I: BACKGROUND
 
@@ -40,6 +41,7 @@ The first  type (UPLOAD) defines and references the data.  The second type (UPDA
 
 Besides defining a format for the OP_RETURN message, the protocol also defines consensus rules that determine the validity to updating data or data reference.
 
+Note: Currently, Bitcoin Cash OP_RETURN scripts imposes a maximum 220 byte size limit
 
 ## Consensus Rules
 
@@ -67,7 +69,7 @@ In all cases of FRP transactions:
 
 FRP uses OP_RETURN script to encode data chunks (byte arrays). Each data chunk inside the OP_RETURN payload is denoted in the following sections using angle brackets **(e.g., &lt;xyz&gt;)**. Messages violating these rules shall be judged entirely invalid under FRP consensus:
 
-1. The script must be valid bitcoin script. Each field must be preceded by a valid Bitcoin script data push opcode. Truncated scripts (ending mid-push) are disallowed.
+1. The script must be valid bitcoin script. Each field must be preceded by a valid Bitcoin script data push opcode. 
 
 2. Each field presented inside the OP_RETURN payload must match the byte size and/or value indicated in parentheses.
 
@@ -176,7 +178,7 @@ UPDATE requires the `upload_txid` generated from the initially uploading the fil
 
 # SECTION III: FURTHER ANALYSIS
 
-## Proxies
+### Proxies
 
 Clients can query the proxy BitDB database and get a judgement on any given transaction. Ultimately, however, it is up to the querier to trust the response. Ideally, the response data should be cross-referenced from multiple sources to get a higher confidence degree of a valid transaction.
 
@@ -193,6 +195,10 @@ Once we have a verifiable global state for the protocol, it becomes easy to buil
 2. When an address makes a FRP transaction **(UPLOAD or UPDATE)**, the transaction inputs and outputs are validated against  the FRP format specification.
 3. The state machine also checks other FRP-valid outputs from the global state to make sure no "double-spending" is recognized. 
 
+
+# References
+`BitDB`: https://docs.fountainhead.cash/docs/bitdb
+`Simple Ledger Protocol`: https://github.com/simpleledger/slp-specifications/blob/master/slp-payment-protocol.md
 
 # Copyright
 
