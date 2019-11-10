@@ -164,7 +164,7 @@ UPDATE requires the `upload_txid` generated from the initially uploading the fil
 
   <tr>
     <td>U</td>
-    <td>Mint baton receiver<br/>(M=mint_baton_vout)</td>
+    <td>(U=update_vout) File updater</td>
     <td>any</td>
   </tr>
   <tr>
