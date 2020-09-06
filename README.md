@@ -1,4 +1,4 @@
-# FRP Token Type 1 Protocol Specification
+# FRP (File Registry Protocol) Type 1 Protocol Specification
 ### Specification version: 0.1
 ### Date published: November 10th, 2019
 
@@ -14,7 +14,7 @@ Chris Troutner & Rosco Kalis - for helping me deploy and understand SLP token tr
 
 In recent years, people working with blockchain technology have sought for an integration system for referencing and/or storing data on-chain. Ethereum's ENS maps human-readable domain names to blockchain addresses through a 2-layer solution: registry and resolver.  Other emergent systems, such as SKALE Network, use secondary blockchains as integration point for file storage.
 
-We start the approach on Bitcoin Cash on-chain data storage by referencing existing OP_RETURN meta data protocols. The Simple Ledger Protocol (SLP) team is most known for the creation of the Bitcoin Cash-based FRP token specification. Another one of their specifications is BitcoinFiles, which allows for referencing off-chain data storage. 
+We start the approach on Bitcoin Cash on-chain data storage by referencing existing OP_RETURN meta data protocols. The Simple Ledger Protocol (SLP) team is most known for the creation of the Bitcoin Cash-based SLP token specification. Another one of their specifications is BitcoinFiles, which allows for referencing off-chain data storage. 
 
 For parsing OP_RETURN meta data protocols, we will utilize BitDB, a graph-based database for looking up specific transactions and script contents. As all entries into BitDB can be verified against other nodes on the network, it is up to the querier to make the final judgement on valid transaction sets.
 
@@ -25,10 +25,10 @@ Here, we are motivated to present our own solution to on-chain data storage. Our
 
 We believe that a good solution for registering data on-chain should have the following properties:
 
-**1. Permissionless**. Its files should not require permission to upload or modify
-**2. Simple**. The system should be easily understandable and straightforward
-**3. Non-invasive.** It should require no changes to the underlying Bitcoin Cash protocol
-**4. Interoperable** It should work with multiple file storage systems
+1. **Permissionless** Its files should not require permission to upload or modify
+2. **Simple** The system should be easily understandable and straightforward
+3. **Non-invasive** It should require no changes to the underlying Bitcoin Cash protocol
+4. **Interoperable** It should work with multiple file storage systems
 
 
 # SECTION II: PROTOCOL DESCRIPTION
